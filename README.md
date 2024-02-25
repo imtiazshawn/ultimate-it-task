@@ -1,4 +1,4 @@
-### Employee Management System
+## Employee Management System
 This project is an Employee Management System built using Next.js with a Bootstrap template for the frontend and a relational database management system (RDBMS) for data storage. The system allows users to log in as an admin, view a list of employees, create new employee entries, and save the data in the database.
 
 ## Tech Stack
@@ -15,7 +15,7 @@ Authentication: Admin login functionality implemented
 > Newly created employee is displayed at the top of the employee list.
 
 ## Live Link
-This site is Live at [Vercel](https://pages.github.com/)
+This site is Live at [Vercel](https://ultimate-it-task.vercel.app/)
 
 
 ## Setup Instructions
@@ -31,6 +31,10 @@ pnpm dev
 # or
 bun dev
 ```
+
+## Admin Login
+username: admin
+password: 123456
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
