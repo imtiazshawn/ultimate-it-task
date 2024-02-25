@@ -1,6 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Employee Management System
+This project is an Employee Management System built using Next.js with a Bootstrap template for the frontend and a relational database management system (RDBMS) for data storage. The system allows users to log in as an admin, view a list of employees, create new employee entries, and save the data in the database.
 
-## Getting Started
+## Tech Stack
+Frontend: Next.js with Bootstrap template
+Backend: Relational Database Management System (RDBMS)
+Database: Any relational database can be used
+Authentication: Admin login functionality implemented
+
+## Functionality
+> Log in using admin credentials.
+> View a list of employees.
+> Create a new employee entry with compulsory fields.
+> Data is saved in the RDBMS.
+> Newly created employee is displayed at the top of the employee list.
+
+## Live Link
+This site is Live at [Vercel](https://pages.github.com/)
+
+
+## Setup Instructions
 
 First, run the development server:
 

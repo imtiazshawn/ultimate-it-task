@@ -25,7 +25,7 @@ const page = () => {
         <div className="col-md-6 offset-md-3">
           <form onSubmit={handleLogin} className={styles.login_form}>
             <div className="text-center">
-              <h1>Login</h1>
+              <h2>Admin Login</h2>
             </div>
             <input
               type="text"

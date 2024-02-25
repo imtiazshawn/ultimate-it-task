@@ -1,6 +1,36 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
+import EmployeeList from "./EmployeeList";
+
 const Dashboard = () => {
+  const [totalEmployees, setTotalEmployees] = useState(0);
+  const [employeeData, setEmployeeData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/employee");
+        if (!response.ok) {
+          throw new Error("Failed to fetch employee data");
+        }
+        const data = await response.json();
+        const total = data.length;
+        setTotalEmployees(total);
+        setEmployeeData(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching employee data:", error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="container mt-4">
       <div className="row">
@@ -31,39 +61,25 @@ const Dashboard = () => {
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Employee Count</h5>
-              <p className="card-text">Total number of employees: 100</p>
+              <p className="card-text">
+                Total number of employees: {totalEmployees}
+              </p>
             </div>
           </div>
         </div>
-        <div className="col-12">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Employee List</h5>
-              <div className="table-responsive">
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>Employee ID</th>
-                      <th>Employee Full Name</th>
-                      <th>Contact No</th>
-                      <th>Email Address</th>
-                      <th>Address</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>John Doe</td>
-                      <td>1234567890</td>
-                      <td>johndoe@example.com</td>
-                      <td>123 Main St, City, Country</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            {totalEmployees == 0 ? (
+              <p>No Employees Available</p>
+            ) : (
+              <>
+                <EmployeeList employeeData={employeeData} />
+              </>
+            )}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
