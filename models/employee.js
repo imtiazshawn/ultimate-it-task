@@ -4,7 +4,6 @@ const EmployeeSchema = new Schema({
   employee_id: {
     type: String,
     required: [true, "Employee Id is Required."],
-    // unique: [true, "Employee ID already Exists"]
   },
   employee_name: {
     type: String,

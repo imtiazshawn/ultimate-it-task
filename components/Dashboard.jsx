@@ -13,7 +13,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/employee");
+        const response = await fetch("/api/employee", {
+          cash: "no-store" 
+        });
         if (!response.ok) {
           throw new Error("Failed to fetch employee data");
         }
