@@ -14,7 +14,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await fetch("/api/employee", {
-          cash: "no-store" 
+          cache: "no-store"
         });
         if (!response.ok) {
           throw new Error("Failed to fetch employee data");
